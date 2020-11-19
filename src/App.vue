@@ -1,62 +1,17 @@
 <template>
-  <div id="app">
+  <div id="=app">
     <Header />
-    <AddTodo v-on:add-todo="addTodo" />
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+    <router-view />
   </div>
 </template>
 
 <script>
-// import your componentw that you want to render
 import Header from "./components/layout/Header";
-import Todos from "./components/Todos";
-import AddTodo from "./components/AddTodo";
-
-import axios from "axios";
 
 export default {
   name: "App",
   components: {
     Header,
-    Todos,
-    AddTodo,
-  },
-  data() {
-    return {
-      todos: [],
-    };
-  },
-  methods: {
-    deleteTodo(id) {
-      axios
-        .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(
-          (res) => (
-            (this.todos = this.todos.filter((todo) => todo.id !== id)),
-            console.log(res)
-          )
-        )
-        .catch((err) => console.log(err));
-    },
-    addTodo(newTodo) {
-      //destructuring our value from newTodo
-      const { title, completed } = newTodo;
-      //make a post request to jsonplaceholder
-      axios
-        .post("https://jsonplaceholder.typicode.com/todos", {
-          title,
-          completed,
-        }) //our newTodo will be res.data so we need to added to our array
-        .then((res) => (this.todos = [...this.todos, res.data]))
-        .catch((err) => console.log(err));
-    },
-  },
-  // created() is working the same as componentDidMount in react
-  created() {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=5")
-      .then((res) => (this.todos = res.data))
-      .catch((err) => console.log(err));
   },
 };
 </script>

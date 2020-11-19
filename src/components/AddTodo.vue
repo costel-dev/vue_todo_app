@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit="addTodo">
+    <form @submit.prevent="addTodo">
       <input
         type="text"
         v-model="title"
@@ -21,8 +21,7 @@ export default {
     };
   },
   methods: {
-    addTodo(e) {
-      e.preventDefault();
+    addTodo() {
       const newTodo = {
         title: this.title,
         completed: false,
@@ -38,6 +37,7 @@ export default {
 <style scoped>
 form {
   display: flex;
+  height: 40px;
 }
 
 input[type="text"] {
