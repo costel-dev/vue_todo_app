@@ -68,13 +68,13 @@ body {
 .btn {
   display: inline-block;
   border: none;
-  background: #555;
+  background: rgb(64, 199, 147);
   color: #fff;
   padding: 7px 20px;
   cursor: pointer;
 }
 
 .btn:hover {
-  background: #666;
+  filter: brightness(120%);
 }
 </style>

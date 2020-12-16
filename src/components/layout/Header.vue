@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1>TodoList</h1>
+    <h1>Todo <img src="../../assets/logo.png" alt="vue logo" /> List</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -22,9 +22,18 @@ export default {
   padding: 10px;
 }
 
+.header img {
+  width: 40px;
+  height: auto;
+}
+
 .header a {
   color: #fff;
   padding-right: 5px;
   text-decoration: none;
+}
+
+.header a:hover {
+  color: rgb(64, 199, 147);
 }
 </style>

@@ -34,6 +34,7 @@ export default {
 
 .is-complete {
   text-decoration: line-through;
+  color: rgb(64, 199, 147);
 }
 
 .del {
