@@ -26,6 +26,10 @@ export default {
 </script>
 
 <style scoped>
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
 .todo-item {
   background: #f4f4f4;
   padding: 10px;

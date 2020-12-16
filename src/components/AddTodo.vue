@@ -9,6 +9,9 @@
       />
       <input type="submit" value="Submit" class="btn" />
     </form>
+    <div v-bind:class="{ 'show-alert': showAlert }">
+      <span class="alert-message">Please add todo...</span>
+    </div>
   </div>
 </template>
 
@@ -18,6 +21,7 @@ export default {
   data() {
     return {
       title: "",
+      showAlert: true,
     };
   },
   methods: {
@@ -27,8 +31,13 @@ export default {
         completed: false,
       };
       // send it to parent
-      this.$emit("add-todo", newTodo);
-      this.title = "";
+      if (this.title === "") {
+        this.showAlert = false;
+      } else {
+        this.showAlert = true;
+        this.$emit("add-todo", newTodo);
+        this.title = "";
+      }
     },
   },
 };
@@ -43,9 +52,18 @@ form {
 input[type="text"] {
   flex: 10;
   padding: 5px;
+  outline: none;
 }
 
 input[type="submit"] {
   flex: 2;
+  outline: none;
+}
+
+.show-alert {
+  display: none;
+}
+.alert-message {
+  color: red;
 }
 </style>

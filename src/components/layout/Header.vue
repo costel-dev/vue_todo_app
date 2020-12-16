@@ -1,6 +1,12 @@
 <template>
   <header class="header">
-    <h1>Todo <img src="../../assets/logo.png" alt="vue logo" /> List</h1>
+    <h1>
+      Todo
+      <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"
+        ><img src="../../assets/logo.png" alt="vue logo"
+      /></a>
+      List
+    </h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
